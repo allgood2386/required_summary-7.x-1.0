@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * This module calls simple form_alter to make the sumamry field that is attached to body required
+ */
+
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ *
+ * Implements hook_form_alter
+ */
+function required_summary_form_alter(&$form, &$form_state, $form_id) {
+  //If the node is using summary we make it required and remove the js that collapses the field.
+  if (isset($form['body']['und'][0]['summary'])) {
+    $form['body']['und'][0]['summary']['#required'] = TRUE;
+    unset($form['body'][LANGUAGE_NONE][0]['summary']['#attached']);
+  }
+}

@@ -1,0 +1,5 @@
+name = Required Summary
+description = Makes the summary field (part of the body) a required field.
+core = 7.x
+package = Human Rights First
+version = 7.x-1.0
